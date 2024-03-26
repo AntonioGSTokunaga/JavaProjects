@@ -9,7 +9,7 @@ public class Cliente {
     private String tipo, nome, documento;
     private double saldo;
 
-    public Cliente(int id, String tipo, String nome, String documento, double saldo) {
+    public Cliente(int id, String tipo, String nome, String documento) {
         this.id = id;
         this.tipo = tipo;
         this.nome = nome;
@@ -28,6 +28,14 @@ public class Cliente {
     public boolean depositar(double valor){
         if (valor > 0){
             this.saldo += valor;
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean transferir(Cliente destinatario, double valor){
+        if (this.sacar(valor)){
+            destinatario.depositar(valor);
             return true;
         }
         return false;

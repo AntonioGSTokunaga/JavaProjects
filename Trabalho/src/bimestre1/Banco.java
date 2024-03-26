@@ -17,7 +17,19 @@ public class Banco {
         String nome = sc.next();
         System.out.println("Informe o CPF: ");
         String documento = sc.next();
-        Cliente c = new Cliente(id, "Fisico", nome, documento);
-        return c;
+        Cliente cliente = new Cliente(id, "Fisico", nome, documento);
+        return cliente;
+    }
+    
+      public Cliente novoClienteJuridico(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Informe o Id: ");
+        int id = sc.nextInt();
+        System.out.println("Informe o nome: ");
+        String nome = sc.next();
+        System.out.println("Informe o CNPJ: ");
+        String documento = sc.next();
+        Cliente cliente = new Cliente(id, "Juridico", nome, documento);
+        return cliente;
     }
 }
